@@ -1,2 +1,3 @@
 telethon
+lxml
 -r ./requirements-stdborg.txt
