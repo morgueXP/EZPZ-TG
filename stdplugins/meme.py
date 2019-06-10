@@ -1,6 +1,6 @@
 """
 Memes Plugin for Userbot
-usage = .meme someCharacter //default delay will be 3
+usage = .meme someCharacter 
 By : - @Zero_cool7870
 
 """
