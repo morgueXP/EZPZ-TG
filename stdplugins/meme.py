@@ -1,6 +1,6 @@
 """
 Memes Plugin for Userbot
-usage = .meme someCharacter 
+usage = .meme someCharacter //default delay will be 3
 By : - @Zero_cool7870
 
 """
@@ -15,7 +15,7 @@ async def meme(event):
     if event.fwd_from:
         return   
     memeVar = event.text
-    sleepValue = 2
+    sleepValue = 3
     memeVar = memeVar[6:] 
            
     await event.edit("-------------"+memeVar)
@@ -32,19 +32,14 @@ async def meme(event):
     await event.edit("--"+memeVar+"-----------")
     await event.edit("-"+memeVar+"------------")
     await event.edit(memeVar+"-------------")
-    
-    
-    
-    
-    
-    
-    
-     
-    
+    await event.edit(memeVar)
     await asyncio.sleep(sleepValue)
-    await event.delete()
 
-#usage flower : .flower
+"""
+Bonus : Flower Boquee Generater
+usage:- .flower
+
+"""
 @borg.on(events.NewMessage(pattern=r"\.flower", outgoing=True))
 async def meme(event):
     if event.fwd_from:
@@ -52,13 +47,15 @@ async def meme(event):
     flower =" 🌹"
     sleepValue = 5
            
-    await event.edit(flower+"      ")
-    await event.edit(flower+flower+"     ")
-    await event.edit(flower+flower+flower+"    ")
-    await event.edit(flower+flower+flower+flower+"   ")
-    await event.edit(flower+flower+flower+flower+flower+"  ")
-    await event.edit(flower+flower+flower+flower+flower+flower+flower+" ")
-    await event.edit(flower+flower+flower+flower+flower+flower+flower+flower)
+    await event.edit(flower+"        ")
+    await event.edit(flower+flower+"       ")
+    await event.edit(flower+flower+flower+"      ")
+    await event.edit(flower+flower+flower+flower+"     ")
+    await event.edit(flower+flower+flower+flower+flower+"    ")
+    await event.edit(flower+flower+flower+flower+flower+flower+flower+"   ")
+    await event.edit(flower+flower+flower+flower+flower+flower+flower+flower+"  ")
+    await event.edit(flower+flower+flower+flower+flower+flower+flower+flower+flower+" ")
+    await event.edit(flower+flower+flower+flower+flower+flower+flower+flower+flower+flower)
     await asyncio.sleep(sleepValue)
         
     
