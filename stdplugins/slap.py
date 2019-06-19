@@ -76,10 +76,6 @@ HIT = [
 async def who(event):
     if event.fwd_from:
         return
-    if Config.SLAP_USERNAME is None:
-    	await event.edit("`Please Setup SLAP_USERNAME Var in Heroku, Kthxbye.`")
-    	return 
-
     replied_user = await get_user(event)
     caption = await slap(replied_user, event)
     message_id_to_reply = event.message.reply_to_msg_id
