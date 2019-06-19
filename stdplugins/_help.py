@@ -11,7 +11,7 @@ async def _(event):
         s_help_string = borg._plugins[splugin_name].__doc__
     else:
         s_help_string = ""
-    help_string = """`Hi, I am a Bot in service of Master Jas. I am Running 
+    help_string = """`Hi, I am a Bot in service of Master Jas. I am Running.. 
 Python {}
 Telethon {}`
 """.format(
