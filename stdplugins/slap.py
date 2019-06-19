@@ -76,7 +76,7 @@ HIT = [
 async def who(event):
     if event.fwd_from:
         return
-    if Config.SLAP_USERNAME is none:
+    if Config.SLAP_USERNAME is None:
     	await event.edit("`Please Setup SLAP_USERNAME Var in Heroku, Kthxbye.`")
     	return 
 
