@@ -1,6 +1,6 @@
 """
 SLAP Plugin For Userbot
-usage:- .slap in reply to any message, or u gonna slap urself.
+usage:- First Setup SLAP_USERNAME in HEroku and then .slap in reply to any message, or u gonna slap urself.
 
 """
 
@@ -76,6 +76,9 @@ HIT = [
 async def who(event):
     if event.fwd_from:
         return
+    if Config.SLAP_USERNAME is none:
+    	await event.edit("`Please Setup SLAP_USERNAME Var in Heroku, Kthxbye.`")
+    	return 
 
     replied_user = await get_user(event)
     caption = await slap(replied_user, event)
@@ -136,6 +139,6 @@ async def slap(replied_user, event):
     hit = random.choice(HIT)
     throw = random.choice(THROW)
 
-    caption = "`@Zero_cool7870" + temp.format(user2=slapped, item=item, hits=hit, throws=throw)+"`"
+    caption = "`"+Config.SLAP_USERNAME+" "+ temp.format(user2=slapped, item=item, hits=hit, throws=throw)+"`"
 
     return caption
