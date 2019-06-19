@@ -1,6 +1,6 @@
 """
 SLAP Plugin For Userbot
-usage:- First Setup SLAP_USERNAME in HEroku and then .slap in reply to any message, or u gonna slap urself.
+usage:- .slap in reply to any message, or u gonna slap urself.
 
 """
 
