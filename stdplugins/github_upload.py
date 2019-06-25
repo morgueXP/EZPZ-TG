@@ -76,7 +76,7 @@ async def git_commit(file_name,mone):
 			create_file = False
 	file_name = "stdplugins/"+file_name		
 	if create_file == True:		
-		repo.create_file(file_name, "Uploaded New Plugin, commit_data, branch="master")
+		repo.create_file(file_name, "Uploaded New Plugin", commit_data, branch="master")
 		print("CommitedFile")
 		await mone.edit("`Commited on Your Github Repo.`")
 	else:
