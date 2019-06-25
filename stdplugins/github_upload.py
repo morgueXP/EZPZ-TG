@@ -54,10 +54,6 @@ async def download(event):
 		await mone.edit("Committing to Github....")
 		await git_commit(downloaded_file_name,mone)
 
-
-
-
-
 async def git_commit(file_name,mone):        
 	content_list = []
 	access_token = Config.GITHUB_ACCESS_TOKEN
@@ -67,7 +63,6 @@ async def git_commit(file_name,mone):
 	repo = g.get_repo(Config.GIT_REPO_NAME)
 	print(repo.name)
 	create_file = True
-	#repo.create_file("test.txt", "test",commit_data, branch="master")
 	contents = repo.get_contents("")
 	for content_file in contents:
 		content_list.append(str(content_file))
@@ -89,7 +84,7 @@ async def git_commit(file_name,mone):
 		print("Committed File")
 		await mone.edit("`Committed on Your Github Repo.`")
 	else:
-		return await mone.edit("`Cannot commit`")
+		return await mone.edit("`Committed Suicide`")
 
 
 	
