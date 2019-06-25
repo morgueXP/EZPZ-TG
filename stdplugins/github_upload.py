@@ -77,6 +77,7 @@ async def git_commit(file_name,mone):
 			create_file = False
 	file_name = "stdplugins/"+file_name		
 	if create_file == True:
+		file_name = file_name.replace("./temp/","")
 		print(file_name)
 		repo.create_file(file_name, "Uploaded New Plugin", commit_data, branch="master")
 		print("CommitedFile")
