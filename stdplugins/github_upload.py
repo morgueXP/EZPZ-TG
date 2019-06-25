@@ -48,7 +48,6 @@ async def download(event):
 		end = datetime.now()
 		ms = (end - start).seconds
 		await mone.edit("Downloaded to `{}` in {} seconds.".format(downloaded_file_name, ms))
-		sleep(1)
 		await mone.edit("Commiting to Github....")
 		git_commit(downloaded_file_name)
 
