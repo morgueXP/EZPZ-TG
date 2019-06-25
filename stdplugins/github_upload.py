@@ -68,7 +68,7 @@ async def git_commit(file_name,mone):
 	contents = repo.get_contents("")
 	for content_file in contents:
 		content_list.append(str(content_file))
-		#print(content_file)
+		print(content_file)
 	for i in content_list:
 		create_file = True
 		if i == 'ContentFile(path="'+file_name+'")':
@@ -77,6 +77,7 @@ async def git_commit(file_name,mone):
 	file_name = "stdplugins/"+file_name		
 	if create_file == True:		
 		repo.create_file(file_name, file_name, commit_data, branch="master")
+		print("CommitedFile")
 		await mone.edit("`Commited on Your Github Repo.`")
 	else:
 		return await mone.edit("`Cannot commit`")
