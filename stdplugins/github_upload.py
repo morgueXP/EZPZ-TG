@@ -27,6 +27,7 @@ async def download(event):
 		return   
 	if Config.GIT_REPO_NAME is None:
 		await event.edit("`Please ADD Proper Github Repo Name of your userbot`")
+		return 
 	mone = await event.reply("Processing ...")
 	input_str = event.pattern_match.group(1)
 	if not os.path.isdir(GIT_TEMP_DIR):
