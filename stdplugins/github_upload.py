@@ -1,5 +1,6 @@
 """
 GITHUB File Uploader Plugin for userbot. Heroku Automation should be Enabled. Else u r not that lazy // For lazy people
+Instructions:- Set GITHUB_ACCESS_TOKEN and GIT_REPO_NAME Variables in Heroku vars First
 usage:- .commit reply_to_any_plugin //can be any type of file too. but for plugin must be in .py 
 By:- @Zero_cool7870 
 
@@ -48,8 +49,9 @@ async def download(event):
 	else:
 		end = datetime.now()
 		ms = (end - start).seconds
+		await event.delete()
 		await mone.edit("Downloaded to `{}` in {} seconds.".format(downloaded_file_name, ms))
-		await mone.edit("Commiting to Github....")
+		await mone.edit("Committing to Github....")
 		await git_commit(downloaded_file_name,mone)
 
 
@@ -84,8 +86,8 @@ async def git_commit(file_name,mone):
 		except:
 			print("Cannot Create Plugin")
 			await mone.edit("Cannot Upload Plugin")
-		print("CommitedFile")
-		await mone.edit("`Commited on Your Github Repo.`")
+		print("Committed File")
+		await mone.edit("`Committed on Your Github Repo.`")
 	else:
 		return await mone.edit("`Cannot commit`")
 
