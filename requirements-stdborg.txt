@@ -16,6 +16,7 @@ psycopg2
 python-magic
 regex
 requests
+PyGithub
 speedtest-cli
 sqlalchemy
 telegraph
