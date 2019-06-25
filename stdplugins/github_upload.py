@@ -79,7 +79,11 @@ async def git_commit(file_name,mone):
 	if create_file == True:
 		file_name = file_name.replace("./temp/","")
 		print(file_name)
-		repo.create_file(file_name, "Uploaded New Plugin", commit_data, branch="master")
+		try:
+			repo.create_file(file_name, "Uploaded New Plugin", commit_data, branch="master")
+		except:
+			print("Cannot Create Plugin")
+			await mone.edit("Cannot Upload Plugin")
 		print("CommitedFile")
 		await mone.edit("`Commited on Your Github Repo.`")
 	else:
