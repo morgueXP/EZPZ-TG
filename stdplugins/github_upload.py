@@ -49,13 +49,13 @@ async def download(event):
 		ms = (end - start).seconds
 		await mone.edit("Downloaded to `{}` in {} seconds.".format(downloaded_file_name, ms))
 		await mone.edit("Commiting to Github....")
-		git_commit(downloaded_file_name)
+		git_commit(downloaded_file_name,mone)
 
 
 
 
 
-async def git_commit(file_name):        
+async def git_commit(file_name,mone):        
 	content_list = []
 	access_token = Config.GITHUB_ACCESS_TOKEN
 	g = Github(access_token)
@@ -72,13 +72,14 @@ async def git_commit(file_name):
 	for i in content_list:
 		create_file = True
 		if i == 'ContentFile(path="'+file_name+'")':
-			return await mone.edit("File Already Exists")
+			return await mone.edit("`File Already Exists`")
 			create_file = False
 	file_name = "stdplugins/"+file_name		
 	if create_file == True:		
 		repo.create_file(file_name, file_name, commit_data, branch="master")
+		await mone.edit("`Commited on Your Github Repo.`")
 	else:
-		return await mone.edit("Cannot commit")
+		return await mone.edit("`Cannot commit`")
 
 
 	
