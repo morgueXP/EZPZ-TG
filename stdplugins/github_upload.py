@@ -78,11 +78,11 @@ async def git_commit(file_name,mone):
 		print(file_name)
 		try:
 			repo.create_file(file_name, "Uploaded New Plugin", commit_data, branch="master")
+			print("Committed File")
+			await mone.edit("`Committed on Your Github Repo.`")
 		except:
 			print("Cannot Create Plugin")
 			await mone.edit("Cannot Upload Plugin")
-		print("Committed File")
-		await mone.edit("`Committed on Your Github Repo.`")
 	else:
 		return await mone.edit("`Committed Suicide`")
 
