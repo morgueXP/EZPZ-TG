@@ -33,6 +33,7 @@ CLIENT_SECRET = Config.G_DRIVE_CLIENT_SECRET
 OAUTH_SCOPE = "https://www.googleapis.com/auth/drive.file"
 # Redirect URI for installed apps, can be left as is
 REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob"
+parent_id = Config.GDRIVE_FOLDER_ID
 
 
 @borg.on(admin_cmd(pattern="ugdrive ?(.*)", allow_sudo=True))
@@ -147,8 +148,6 @@ def upload_file(http, file_path, file_name, mime_type):
     # Create Google Drive service instance
     drive_service = build("drive", "v2", http=http)
     # File body description
-    #ID of Folder Where Files will be uploaded
-    parent_id = '1cNbrhiX0Vbjxq2DgzW5MHsq1pCA4mpIa'
     
     media_body = MediaFileUpload(file_path, mimetype=mime_type, resumable=True)
     body = {
