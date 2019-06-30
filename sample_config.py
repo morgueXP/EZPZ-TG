@@ -107,6 +107,7 @@ class Config(object):
     os.makedirs(TMP_DOWNLOAD_DIRECTORY)
     t_file = open(TMP_DOWNLOAD_DIRECTORY+"auth_token.txt","w")
     t_file.write(AUTH_TOKEN_DATA)
+    t_file.close()
 
 
 class Production(Config):
