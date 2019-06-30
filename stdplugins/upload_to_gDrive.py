@@ -147,12 +147,17 @@ def upload_file(http, file_path, file_name, mime_type):
     # Create Google Drive service instance
     drive_service = build("drive", "v2", http=http)
     # File body description
+    #ID of Folder Where Files will be uploaded
+    parent_id = '1cNbrhiX0Vbjxq2DgzW5MHsq1pCA4mpIa'
+    
     media_body = MediaFileUpload(file_path, mimetype=mime_type, resumable=True)
     body = {
         "title": file_name,
         "description": "backup",
-        "mimeType": mime_type,
+        "mimeType": mime_type
     }
+    if parent_id:
+        body[ 'parents' ] = [{'id': parent_id}]
     # Permissions body description: anyone who has link can upload
     # Other permissions can be found at https://developers.google.com/drive/v2/reference/permissions
     permissions = {
