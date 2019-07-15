@@ -29,7 +29,7 @@ async def get_media(event):
 	        await borg.download_media(
                 msg,dir)
     num_files = subprocess.check_output(command)
-    await event.edit("Downloaded "+str(num_files))
+    await event.edit("Downloaded "+str(num_files)+" files.")
              
              
              
@@ -57,7 +57,7 @@ async def get_media(event):
 	        await borg.download_media(
                 msg,dir)          
     num_files = subprocess.check_output(command)
-    await event.edit("Downloaded "+str(num_files))
+    await event.edit("Downloaded "+str(num_files)+" files.")
              
              
              
