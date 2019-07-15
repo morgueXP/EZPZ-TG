@@ -64,6 +64,8 @@ async def get_media(event):
     ps = subprocess.Popen(('ls', 'temp'), stdout=subprocess.PIPE)
     output = subprocess.check_output(('wc', '-l'), stdin=ps.stdout)
     ps.wait()
+    output = output.replace("b'","")
+    output = output.replace("\n'","")
     await event.edit("Downloaded "+str(output)+" files.")
              
              
