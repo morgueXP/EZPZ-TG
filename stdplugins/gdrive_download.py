@@ -23,8 +23,6 @@ async def download_file_from_google_drive(id):
         response = session.get(URL, params = params, stream = True)
 
     headers = response.headers
-    with open("headers.txt",'w') as f:
-        f.write(str(headers))
     content = headers['Content-Disposition']
     destination = await get_file_name(content)    
 
