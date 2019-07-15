@@ -50,6 +50,8 @@ async def get_media(event):
     channel_username= event.text
     command = ['ls','temp','|','wc','-l' ]
     channel_username = channel_username[7:]
+    msg_num = await borg.get_message_history(channel_username)
+    print(msg_num)
     print(channel_username)
     await event.edit("Downloading All Media From this Channel.")
     msgs = await borg.get_messages(channel_username)
