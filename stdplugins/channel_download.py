@@ -20,7 +20,7 @@ async def get_media(event):
     print(limit)
     channel_username = channel_username[11: ]
     print(channel_username)
-    await event.edit("Downloading  All Media From this Channel.")
+    await event.edit("Downloading Media From this Channel.")
     msgs = await borg.get_messages(channel_username, limit=int(limit))
     with open('log.txt','w') as f:
     	f.write(str(msgs))
@@ -28,8 +28,8 @@ async def get_media(event):
        if msg.media is not None:
 	        await borg.download_media(
                 msg,dir)
-     num_files = subprocess.check_output(command)
-     await event.edit("Downloaded "+str(num_files))
+    num_files = subprocess.check_output(command)
+    await event.edit("Downloaded "+str(num_files))
              
              
              
@@ -48,7 +48,7 @@ async def get_media(event):
     command = ['ls','temp','|','wc','-l' ]
     channel_username = channel_username[11: ]
     print(channel_username)
-    await event.edit("Downloading  All Media From this Channel.")
+    await event.edit("Downloading All Media From this Channel.")
     msgs = await borg.get_messages(channel_username)
     with open('log.txt','w') as f:
     	f.write(str(msgs))
@@ -56,8 +56,8 @@ async def get_media(event):
        if msg.media is not None:
 	        await borg.download_media(
                 msg,dir)          
-     num_files = subprocess.check_output(command)
-     await event.edit("Downloaded "+str(num_files))
+    num_files = subprocess.check_output(command)
+    await event.edit("Downloaded "+str(num_files))
              
              
              
