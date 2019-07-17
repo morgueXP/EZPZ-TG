@@ -100,7 +100,7 @@ class Config(object):
     VERY_STREAM_LOGIN = os.environ.get("VERY_STREAM_LOGIN", None)
     VERY_STREAM_KEY = os.environ.get("VERY_STREAM_KEY", None)
     TEMP_DIR = os.environ.get("TEMP_DIR", None)
-    CHANNEL_ID = os.environ.get("CHANNEL_ID", None)
+    CHANNEL_ID = int(os.environ.get("CHANNEL_ID", None))
     # Google Drive ()
     G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID", None)
     G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET", None)
