@@ -35,8 +35,7 @@ async def batch_upload(event):
 			print(required_file_name)
 			await borg.send_file(
 					channel,
-					required_file_name,
-					force_document=True
+					required_file_name
 				)
 	else:
 		await event.edit("Directory Not Found.")
