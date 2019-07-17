@@ -86,7 +86,7 @@ async def _(event):
                         single_file,
                         caption=caption_rts,
                         force_document=bool(os.environ.get('FORCE_DOCUMENT',None)),
-                        supports_streaming=supports_streaming,
+                        supports_streaming=False,
                         allow_cache=False,
                         reply_to=event.message.id,
                         thumb=thumb,
