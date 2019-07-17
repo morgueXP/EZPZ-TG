@@ -12,11 +12,6 @@ import requests
 import os
 chunk_size =  3242880
 
-download_dir=Config.TEMP_DIR	
-try:
-	os.makedirs(download_dir)
-except:
-	pass	
 
 
 async def get_file_name(link):
@@ -56,7 +51,11 @@ async def anime_download(event):
 	if Config.TEMP_DIR is None:
 		await event.edit("Please Set Required ENV Variables First.")
 		return
-
+	download_dir=Config.TEMP_DIR	
+	try:
+		os.makedirs(download_dir)
+	except:
+		pass	
 	
 	var = event.text
 	number_of_eps = var[7:9]
@@ -89,6 +88,6 @@ async def anime_download(event):
 	for i in urls:
 		filename = await get_file_name(i)
 		print(filename)
-		filename = download_dir+filename
+		filename = download_dir+"/"+filename
 		await download_file(i,filename)
 	await event.edit("All Episodes Downloaded.")		
