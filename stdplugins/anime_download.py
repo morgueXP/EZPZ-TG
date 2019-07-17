@@ -12,7 +12,7 @@ import requests
 import os
 chunk_size =  3242880
 
-
+download_dir=Config.TEMP_DIR	
 try:
 	os.makedirs(download_dir)
 except:
@@ -57,7 +57,7 @@ async def anime_download(event):
 		await event.edit("Please Set Required ENV Variables First.")
 		return
 
-	download_dir=Config.TEMP_DIR	
+	
 	var = event.text
 	number_of_eps = var[7:9]
 	number_of_eps = int(number_of_eps)
