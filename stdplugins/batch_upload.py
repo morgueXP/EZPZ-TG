@@ -22,7 +22,7 @@ async def batch_upload(event):
 	if Config.TEMP_DIR is None:
 		await event.edit("Please Set Temp Directory.")
 		return
-	channel = Config.CHANNEL_ID
+	channel = -1001301776435
 	temp_dir = Config.TEMP_DIR	
 	if os.path.exists(temp_dir):    
 		os.chdir(temp_dir)
@@ -35,7 +35,8 @@ async def batch_upload(event):
 			print(required_file_name)
 			await borg.send_file(
 					channel,
-					required_file_name
+					required_file_name,
+					force_document=True
 				)
 	else:
 		await event.edit("Directory Not Found.")
