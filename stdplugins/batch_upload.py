@@ -16,10 +16,12 @@ from telethon import events
 async def batch_upload(event):
 	if event.fwd_from:
 		return   
-	if Config.CHANNEL_ID or Config.TEMP_DIR is None:
-		await event.edit("Please Set Required ENV Variables First.")
+	if Config.CHANNEL_ID is None:
+		await event.edit("Please Set Channel ID.")
 		return
-			
+	if Config.TEMP_DIR is None:
+		await event.edit("Please Set Temp Directory.")
+		return
 	channel = Config.CHANNEL_ID
 	temp_dir = Config.TEMP_DIR	
 	if os.path.exists(temp_dir):    
