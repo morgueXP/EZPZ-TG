@@ -85,7 +85,7 @@ async def _(event):
                         event.chat_id,
                         single_file,
                         caption=caption_rts,
-                        force_document=force_document,
+                        force_document=bool(os.environ.get('FORCE_DOCUMENT',None)),
                         supports_streaming=supports_streaming,
                         allow_cache=False,
                         reply_to=event.message.id,
