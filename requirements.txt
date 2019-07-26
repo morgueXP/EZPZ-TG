@@ -1,3 +1,4 @@
 telethon
 lxml
+selenium
 -r ./requirements-stdborg.txt
