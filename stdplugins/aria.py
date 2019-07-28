@@ -93,7 +93,7 @@ async def pause_all(event):
 		return
 	paused = aria2.pause_all(force=True)	#Pause ALL Currently Running Downloads.
 
-	await even.edit("Output: "+str(paused))
+	await event.edit("Output: "+str(paused))
 
 @borg.on(events.NewMessage(pattern=r"\.ariaResume", outgoing=True))
 async def resume_all(event):
