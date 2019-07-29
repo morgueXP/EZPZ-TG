@@ -113,7 +113,7 @@ async def magnet_download(event):
 			print(str(e))
 			pass	
 			
-	await event.edit("File Downloaded Successfully:\n`"+download.name+"`")
+	await event.edit("File Downloaded Successfully:\n`"+fix.name+"`")
 
 
 
