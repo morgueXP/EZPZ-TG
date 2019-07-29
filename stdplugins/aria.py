@@ -113,7 +113,8 @@ async def magnet_download(event):
 			print(str(e))
 			pass	
 			
-	await event.edit("File Downloaded Successfully...")
+	await event.edit("File Downloaded Successfully:\n`"+download.name+"`")
+
 
 
 @borg.on(events.NewMessage(pattern=r"\.ariaRM", outgoing=True))
