@@ -160,7 +160,7 @@ async def show_all(event):
 	msg = ""
 
 	for download in downloads:
-		msg = msg+"File: "+str(download.name) +"\nSpeed: "+ str(download.download_speed_string())+"\n"+"Progress: "+str(download.progress_string())+"\nStatus: "+str(file.status)+"\nETA:  "+str(download.eta_string())+"\n\n"
+		msg = msg+"File: "+str(download.name) +"\nSpeed: "+ str(download.download_speed_string())+"\n"+"Progress: "+str(download.progress_string())+"\nStatus: "+str(download.status)+"\nETA:  "+str(download.eta_string())+"\n\n"
 	print(msg)
 	if len(msg) <= 4096:
 		await event.edit("`Current Downloads: `\n"+msg)
