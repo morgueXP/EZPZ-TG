@@ -76,11 +76,11 @@ async def torrent_download(event):
 		file = aria2.get_download(gid)
 		complete = file.is_complete
 		try:
-			msg = "Downloading File: "+str(file.name) +"\nSpeed: "+ str(file.download_speed_string())+"\n"+"Progress: "+str(file.progress_string())+"\nETA:  "+str(file.eta_string())+"\n\n"  	
+			msg = "Downloading File: "+str(file.name) +"\nSpeed: "+ str(file.download_speed_string())+"\n"+"Progress: "+str(file.progress_string())+"\nStatus: "+str(file.status)+"\nETA:  "+str(file.eta_string())+"\n\n"
 			await event.edit(msg)
 			await asyncio.sleep(10)
 		except Exception as e:
-			print(str(e))
+			#print(str(e))
 			pass	
 
 	await event.edit("File Downloaded Successfully:\n`"+download.name+"`")
@@ -106,11 +106,11 @@ async def magnet_download(event):
 		file = aria2.get_download(gid)
 		complete = file.is_complete
 		try:
-			msg = "Downloading File: "+str(file.name) +"\nSpeed: "+ str(file.download_speed_string())+"\n"+"Progress: "+str(file.progress_string())+"\nETA:  "+str(file.eta_string())+"\n\n"  	
+			msg = "Downloading File: "+str(file.name) +"\nSpeed: "+ str(file.download_speed_string())+"\n"+"Progress: "+str(file.progress_string())+"\nStatus: "+str(file.status)+"\nETA:  "+str(file.eta_string())+"\n\n"	
 			await event.edit(msg)
 			await asyncio.sleep(10)
 		except Exception as e:
-			print(str(e))
+			#print(str(e))
 			pass	
 			
 	await event.edit("File Downloaded Successfully:\n`"+file.name+"`")
@@ -138,7 +138,7 @@ async def pause_all(event):
 		return
 	paused = aria2.pause_all(force=True)	#Pause ALL Currently Running Downloads.
 
-	await even.edit("Output: "+str(paused))
+	await event.edit("Output: "+str(paused))
 
 @borg.on(events.NewMessage(pattern=r"\.ariaResume", outgoing=True))
 async def resume_all(event):
@@ -160,7 +160,7 @@ async def show_all(event):
 	msg = ""
 
 	for download in downloads:
-		msg = msg+"File: "+str(download.name) +"\nSpeed: "+ str(download.download_speed_string())+"\n"+"Progress: "+str(download.progress_string())+"\nETA:  "+str(download.eta_string())+"\n\n"
+		msg = msg+"File: "+str(download.name) +"\nSpeed: "+ str(download.download_speed_string())+"\n"+"Progress: "+str(download.progress_string())+"\nStatus: "+str(file.status)+"\nETA:  "+str(download.eta_string())+"\n\n"
 	print(msg)
 	if len(msg) <= 4096:
 		await event.edit("`Current Downloads: `\n"+msg)
