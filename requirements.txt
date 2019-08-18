@@ -3,4 +3,5 @@ lxml
 selenium
 aria2p
 ChatterBot
+spcli
 -r ./requirements-stdborg.txt
