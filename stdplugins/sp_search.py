@@ -1,6 +1,6 @@
 """
 StartPage Search Plugin for Userbot . //Alternative to Google Search
-cmd : .sp search_query 
+cmd : .sh search_query 
 By: @Zero_cool7870
 
 """
@@ -12,11 +12,11 @@ from uniborg.util import admin_cmd
 
 
 
-@borg.on(admin_cmd(pattern="sp ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="sh ?(.*)", allow_sudo=True))
 async def sp_search(event):
 	search_str = event.pattern_match.group(1)
 
-	await event.edit("**Searching...**")
+	await event.edit("**Searching for "+search_str+" ...**")
 
 	command = "sp --json "+search_str+" > out.json"
 
@@ -26,9 +26,9 @@ async def sp_search(event):
 
 	data = json.loads(str(f))
 
-	msg = "**Search Query** \n`"+search_str+"`\n**Results**\n\n"
+	msg = "**Search Query** \n`"+search_str+"`\n**Results**\n"
 
 	for element in data:
-		msg = msg + "`"+element['title']+"`\n"+element['link']+"\n\n"
+		msg = msg + "⁍ ["+element['title']+"]("+element['link']+")\n\n"
 
 	await event.edit(msg)	
