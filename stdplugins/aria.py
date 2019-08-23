@@ -46,14 +46,17 @@ async def magnet_download(event):
 		download = aria2.add_magnet(magnet_uri)
 		gid = download.gid
 		complete = None
+		previous_message = None
 		while complete != True:
 			file = aria2.get_download(gid)
 			complete = file.is_complete
 			try:
 				if not file.error_message:
 					msg = "Downloading Metadata: `"+str(file.name) +"`\nSpeed: "+ str(file.download_speed_string())+"\nProgress: "+str(file.progress_string())+"\nTotal Size: "+str(file.total_length_string())+"\nStatus: "+str(file.status)+"\nETA:  "+str(file.eta_string())+"\n\n"
-					await event.edit(msg)
-					await asyncio.sleep(10)
+					if msg != previous_message:
+						await event.edit(msg)
+						previous_message = msg
+						await asyncio.sleep(10)
 				else:
 					msg = file.error_message
 					await event.edit("`"+msg+"`")
@@ -64,14 +67,17 @@ async def magnet_download(event):
 		await asyncio.sleep(3)
 		new_gid = await check_metadata(gid)
 		complete = None
+		previous_message = None
 		while complete != True:
 			file = aria2.get_download(new_gid[0])
 			complete = file.is_complete
 			try:
 				if not file.error_message:
 					msg = "Downloading File: `"+str(file.name) +"`\nSpeed: "+ str(file.download_speed_string())+"\nProgress: "+str(file.progress_string())+"\nTotal Size: "+str(file.total_length_string())+"\nStatus: "+str(file.status)+"\nETA:  "+str(file.eta_string())+"\n\n"
-					await event.edit(msg)
-					await asyncio.sleep(15)
+					if previous_message != msg:
+						await event.edit(msg)
+						previous_message = msg
+						await asyncio.sleep(15)
 				else:
 					msg = file.error_message
 					await event.edit("`"+msg+"`")
@@ -118,14 +124,17 @@ async def torrent_download(event):
 
 	gid = download.gid
 	complete = None
+	previous_message = None
 	while complete != True:
 		try:
 			file = aria2.get_download(gid)
 			complete = file.is_complete
 			if not file.error_message:
 				msg = "Downloading File: `"+str(file.name) +"`\nSpeed: "+ str(file.download_speed_string())+"\nProgress: "+str(file.progress_string())+"\nTotal Size: "+str(file.total_length_string())+"\nStatus: "+str(file.status)+"\nETA:  "+str(file.eta_string())+"\n\n"
-				await event.edit(msg)
-				await asyncio.sleep(15)
+				if msg != previous_message:
+					await event.edit(msg)
+					previous_message = msg
+					await asyncio.sleep(15)
 			else:
 					msg = file.error_message
 					await event.edit("`"+msg+"`")
@@ -161,14 +170,17 @@ async def magnet_download(event):
 
 	gid = download.gid
 	complete = None
+	previous_message = None
 	while complete != True:
 		try:
 			file = aria2.get_download(gid)
 			complete = file.is_complete
 			if not file.error_message:
 				msg = "Downloading File: `"+str(file.name) +"`\nSpeed: "+ str(file.download_speed_string())+"\nProgress: "+str(file.progress_string())+"\nTotal Size: "+str(file.total_length_string())+"\nStatus: "+str(file.status)+"\nETA:  "+str(file.eta_string())+"\n\n"
-				await event.edit(msg)
-				await asyncio.sleep(10)
+				if msg != previous_message:
+					await event.edit(msg)
+					previous_message = msg
+					await asyncio.sleep(10)
 			else:
 					msg = file.error_message
 					await event.edit("`"+msg+"`")
