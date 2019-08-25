@@ -120,7 +120,6 @@ async def sch(event):
     await event.edit("Searching for {} in G-Drive.".format(input_str))
     query = "'{}' in parents and (title contains '{}')".format(parent_id,input_str)#search_query(parent_id,input_str)
     msg = await gsearch(http,query,input_str)
-    print(msg)
     await event.edit(str(msg))
 
 
