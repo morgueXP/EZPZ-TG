@@ -94,7 +94,7 @@ async def _(event):
         # required_file_name will have the full path
         # Sometimes API fails to retrieve starting URI, we wrap it.
         try:
-            g_drive_link = upload_file(http, required_file_name, file_name, mime_type,mone,parent_id)
+            g_drive_link = await upload_file(http, required_file_name, file_name, mime_type,mone,parent_id)
             await mone.edit("__Successfully Uploaded File on G-Drive :__\n[{}]({})".format(file_name,g_drive_link))
         except Exception as e:
             await mone.edit(f"Exception occurred while uploading to gDrive {e}")
