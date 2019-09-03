@@ -103,6 +103,8 @@ class Config(object):
     CHANNEL_ID = int(os.environ.get("CHANNEL_ID", None))
     #MongoDB
     MONGO_URI = os.environ.get("MONGO_URI", None)
+    #Lydia API
+    LYDIA_API = os.environ.get("LYDIA_API",None)
     #Google Chrome Stuff
     CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
     GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
