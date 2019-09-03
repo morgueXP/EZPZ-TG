@@ -5,5 +5,5 @@ aria2p
 ChatterBot
 spcli
 instaloader
-coffeehouse
+coffeehouse==1.0.4
 -r ./requirements-stdborg.txt
