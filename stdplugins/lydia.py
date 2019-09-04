@@ -6,7 +6,7 @@ Description: A module that Act as a chatbot and chat with a User/other Bot.
 			This Module also Needs MongoDB For a Storage of Some Data So make Sure you have that too.
 
 Usage: .cf <as a reply to user's message //Turns AI on For that user.
-	   .delcf <as a reply to user's message //Turns AI on For that user.			
+	   .delcf <as a reply to user's message //Turns AI off For that user.			
 
 Credits: @Zero_cool7870 (For Writing This Module)
 		 Zi Xing (For CoffeeHouse API)			
