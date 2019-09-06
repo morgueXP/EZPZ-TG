@@ -100,7 +100,7 @@ class Config(object):
     VERY_STREAM_LOGIN = os.environ.get("VERY_STREAM_LOGIN", None)
     VERY_STREAM_KEY = os.environ.get("VERY_STREAM_KEY", None)
     TEMP_DIR = os.environ.get("TEMP_DIR", None)
-    CHANNEL_ID = int(os.environ.get("CHANNEL_ID", None))
+    CHANNEL_ID = int(os.environ.get("CHANNEL_ID"))
     #MongoDB
     MONGO_URI = os.environ.get("MONGO_URI", None)
     #Lydia API
@@ -113,10 +113,11 @@ class Config(object):
     G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET", None)
     GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", None)
     AUTH_TOKEN_DATA = os.environ.get("AUTH_TOKEN_DATA", None)
-    os.makedirs(TMP_DOWNLOAD_DIRECTORY)
-    t_file = open(TMP_DOWNLOAD_DIRECTORY+"auth_token.txt","w")
-    t_file.write(AUTH_TOKEN_DATA)
-    t_file.close()
+    if AUTH_TOKEN_DATA != None:
+        os.makedirs(TMP_DOWNLOAD_DIRECTORY)
+        t_file = open(TMP_DOWNLOAD_DIRECTORY+"auth_token.txt","w")
+        t_file.write(AUTH_TOKEN_DATA)
+        t_file.close()
 
 
 class Production(Config):
