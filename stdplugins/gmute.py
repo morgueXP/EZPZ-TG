@@ -109,21 +109,13 @@ async def list_gmuted(event):
 async def gmute_listener(sender):			
 	if MONGO_URI is None:
 		return
-	try:	
-		chat = await sender.get_chat()	
-		is_admin = chat.admin_rights
-		is_creator = chat.creator
-	except:
-		return
-	if not is_admin and not is_creator:
-		return
 	try:
 		curs = muted.find({})
 		for c in curs:
 			if c['user_id'] == sender.from_id:
 				await sender.delete()
-	except Exception as e:
-		logging.error(str(e))			
+	except:
+		return 
 			
 
 
