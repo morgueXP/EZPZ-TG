@@ -9,7 +9,7 @@ from pathlib import Path
 from telethon import TelegramClient
 import telethon.utils
 import telethon.events
-
+from pymongo import MongoClient
 from .storage import Storage
 from . import hacks
 
@@ -28,7 +28,7 @@ class Uniborg(TelegramClient):
         self._plugins = {}
         self._plugin_path = plugin_path
         self.config = api_config
-
+        self.mongo = MongoClient(self.config.MONGO_URI)
         kwargs = {
             "api_id": 6,
             "api_hash": "eb06d4abfb49dc3eeb1aeb98ae0f581e",
@@ -99,6 +99,7 @@ class Uniborg(TelegramClient):
         mod = importlib.util.module_from_spec(spec)
 
         mod.borg = self
+        mod.mongo_client = self.mongo
         mod.logger = logging.getLogger(shortname)
         mod.storage = self.storage(f"{self._name}/{shortname}")
         # declare Config and tgbot to be accessible by all modules
