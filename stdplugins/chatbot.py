@@ -21,7 +21,6 @@ from telethon import events
 import asyncio
 import os
 from uniborg.util import admin_cmd
-from pymongo import MongoClient
 import logging
 logging.basicConfig(level=logging.INFO)
 
@@ -40,13 +39,12 @@ try:
 	    	database_uri=MONGO_URI,
 	    	logic_adapters=logic_adapters
 		)   
-	client = MongoClient(MONGO_URI)
 except Exception as e:
 	logging.error(str(e))
 
 #Some variables	  
 current_msgs = {}
-db = client['test']
+db = mongo_client['test']
 auto_chat = db.auto_chat
 learn_chat = db.learn_chat
 
