@@ -13,10 +13,8 @@ import logging
 import asyncio
 from uniborg.util import admin_cmd
 logging.basicConfig(level=logging.INFO)
-
-
+MONGO_URI = Config.MONGO_URI
 try:	
-        MONGO_URI = Config.MONGO_URI
 	db = mongo_client['test']
 	muted = db.muted
 except Exception as e:
