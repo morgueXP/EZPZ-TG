@@ -11,7 +11,6 @@ By:- JaskaranSM ( @Zero_cool7870 )
 from telethon import events
 import logging
 import asyncio
-from pymongo import MongoClient
 from uniborg.util import admin_cmd
 logging.basicConfig(level=logging.INFO)
 
@@ -19,9 +18,8 @@ logging.basicConfig(level=logging.INFO)
 MONGO_URI= Config.MONGO_URI
 if MONGO_URI is None:
 	logging.error("ADD MONGO_URI in Env Vars Plox.")
-try:
-	clnt = MongoClient(MONGO_URI)	
-	db = clnt['test']
+try:	
+	db = mongo_client['test']
 	muted = db.muted
 except Exception as e:
 	logging.error(str(e))	
