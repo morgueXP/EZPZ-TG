@@ -12,6 +12,7 @@ import telethon.events
 
 from .storage import Storage
 from . import hacks
+from pymonfo import MongoClient
 
 
 class Uniborg(TelegramClient):
@@ -28,6 +29,7 @@ class Uniborg(TelegramClient):
         self._plugins = {}
         self._plugin_path = plugin_path
         self.config = api_config
+        self.mongo = MongoClient(os.environ.get("MONGO_URI",None))
 
         kwargs = {
             "api_id": 6,
@@ -99,6 +101,7 @@ class Uniborg(TelegramClient):
         mod = importlib.util.module_from_spec(spec)
 
         mod.borg = self
+        mod.mongo_client = self.mongo
         mod.logger = logging.getLogger(shortname)
         mod.storage = self.storage(f"{self._name}/{shortname}")
         # declare Config and tgbot to be accessible by all modules
