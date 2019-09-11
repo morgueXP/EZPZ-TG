@@ -12,7 +12,7 @@ import telethon.events
 
 from .storage import Storage
 from . import hacks
-from pymonfo import MongoClient
+from pymongo import MongoClient
 
 
 class Uniborg(TelegramClient):
