@@ -19,6 +19,7 @@ from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
 
 
 GIT_TEMP_DIR = "./temp/"
+BRANCH = "test"
 @borg.on(admin_cmd(pattern="commit ?(.*)", allow_sudo=True))
 async def download(event):
 	if event.fwd_from:
@@ -77,7 +78,7 @@ async def git_commit(file_name,mone):
 		file_name = file_name.replace("./temp/","")
 		print(file_name)
 		try:
-			repo.create_file(file_name, "Uploaded New Plugin", commit_data, branch="master")
+			repo.create_file(file_name, "Uploaded New Plugin", commit_data, branch=BRANCH)
 			print("Committed File")
 			await mone.edit("`Committed on Your Github Repo.`")
 		except:
