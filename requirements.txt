@@ -6,4 +6,5 @@ ChatterBot
 spcli
 instaloader
 coffeehouse==1.0.4
+anime-downloader
 -r ./requirements-stdborg.txt
