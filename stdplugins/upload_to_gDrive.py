@@ -290,22 +290,22 @@ async def upload_file(http, file_path, file_name, mime_type, event, parent_id):
     display_message = ""
     while response is None:
         status, response = file.next_chunk()  #Credits: https://github.com/AvinashReddy3108/PaperplaneExtended/commit/df65da55d16a6563aa9023cac2bedf43248379f5
-        await asyncio.sleep(5)
-        if status:
-            percentage = int(status.progress() * 100)
-            progress_str = "[{0}{1}]\nProgress: {2}%\n".format(
-                "".join(["█" for i in range(math.floor(percentage / 5))]),
-                "".join(["░" for i in range(20 - math.floor(percentage / 5))]),
-                round(percentage, 2)
-            )
-            current_message = f"Uploading to G-Drive:\nFile Name: `{file_name}`\n{progress_str}"
-            if display_message != current_message:
-                try:
-                    await event.edit(current_message)
-                    display_message = current_message
-                except Exception as e:
-                    logger.info(str(e))
-                    pass
+        #await asyncio.sleep(5)
+        #if status:
+            #percentage = int(status.progress() * 100)
+            #progress_str = "[{0}{1}]\nProgress: {2}%\n".format(
+                #"".join(["█" for i in range(math.floor(percentage / 5))]),
+                #"".join(["░" for i in range(20 - math.floor(percentage / 5))]),
+                #round(percentage, 2)
+            #)
+            #current_message = f"Uploading to G-Drive:\nFile Name: `{file_name}`\n{progress_str}"
+            #if display_message != current_message:
+                #try:
+                    #await event.edit(current_message)
+                    #display_message = current_message
+                #except Exception as e:
+                    #logger.info(str(e))
+                    #pass
     file_id = response.get("id")
     # Insert new permissions
     drive_service.permissions().insert(fileId=file_id, body=permissions).execute()
