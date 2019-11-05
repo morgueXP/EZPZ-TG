@@ -1,4 +1,4 @@
-from userbot import CMD_LIST
+from UniBorg import CMD_LIST
 
 @command(pattern="^.help ?(.*)")
 async def cmd_list(event):
