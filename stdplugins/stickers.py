@@ -75,7 +75,7 @@ async def _(event):
                         mime_type='image/png',
                         attributes=[
                             DocumentAttributeFilename(
-                                "@UniBorg_Sticker.png"
+                                "@DraXCommunity_Sticker.png"
                             )
                         ]
                     ),
@@ -99,7 +99,7 @@ async def _(event):
                         mime_type='image/png',
                         attributes=[
                             DocumentAttributeFilename(
-                                "@UniBorg_Sticker.png"
+                                "@DraXCommunity_Sticker.png"
                             )
                         ]
                     ),
