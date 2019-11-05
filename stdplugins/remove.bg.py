@@ -13,8 +13,8 @@
 # GNU General Public License for more details.
 #
 """Remove.BG Plugin for @UniBorg
-Syntax: .remove.bg https://link.to/image.extension
-Syntax: .remove.bg as reply to a media"""
+Syntax: .rembg https://link.to/image.extension
+Syntax: .rembg as reply to a media"""
 import asyncio
 from datetime import datetime
 import io
@@ -24,13 +24,13 @@ from telethon import events
 from uniborg.util import progress, admin_cmd
 
 
-@borg.on(admin_cmd("remove\.bg ?(.*)"))
+@borg.on(admin_cmd("rembg ?(.*)"))
 async def _(event):
     HELP_STR = "`.remove.bg` as reply to a media, or give a link as an argument to this command"
     if event.fwd_from:
         return
     if Config.REM_BG_API_KEY is None:
-        await event.edit("You need API token from remove.bg to use this plugin.")
+        await event.edit("You need API token from remove.bg to use this plugin. Setup REM_BG_API_KEY first")
         return False
     input_str = event.pattern_match.group(1)
     start = datetime.now()
