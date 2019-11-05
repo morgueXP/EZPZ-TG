@@ -187,3 +187,10 @@ UserStatusOnline: {}
 UserStatusRecently: {}
 Bots: {}
 None: {}""".format(p, d, y, m, w, o, q, r, b, n))
+    
+async def ban_user(chat_id, i, rights):
+    try:
+        await borg(functions.channels.EditBannedRequest(chat_id, i, rights))
+        return True, None
+    except Exception as exc:
+        return False, str(exc)
