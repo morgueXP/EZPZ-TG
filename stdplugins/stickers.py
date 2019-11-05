@@ -47,9 +47,9 @@ async def _(event):
     me = borg.me
     userid = event.from_id
     packname = f"{userid}'s @DraXCommunity Pack"
-    packshortname = f"Uni_Borg_{userid}"  # format: Uni_Borg_userid
+    packshortname = f"DraXCommunity_{userid}"  # format: Uni_Borg_userid
 
-    await event.edit("Processing this sticker. Please Wait!")
+    await event.edit("Inviting this sticker pack over my pack ^_^")
 
     async with borg.conversation("@Stickers") as bot_conv:
         now = datetime.datetime.now()
@@ -110,7 +110,7 @@ async def _(event):
                 await silently_send_message(bot_conv, sticker_emoji)
                 await silently_send_message(bot_conv, "/done")
 
-    await event.edit(f"sticker added! Your pack can be found [here](t.me/addstickers/{packshortname})")
+    await event.edit(f"Sticker added to [your](tg://user?id={userid}) pack [here](t.me/addstickers/{packshortname})")
 
 
 @borg.on(admin_cmd("packinfo"))
