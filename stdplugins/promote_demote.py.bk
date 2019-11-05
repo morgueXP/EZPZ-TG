@@ -5,7 +5,8 @@ from datetime import datetime
 from telethon.tl.functions.channels import EditAdminRequest
 from telethon.tl.types import ChatAdminRights
 from uniborg.util import admin_cmd
-
+from telethon.tl.functions.channels import EditBannedRequest
+from telethon.tl.types import ChatBannedRights
 
 @borg.on(admin_cmd(pattern="promote ?(.*)"))
 async def _(event):
@@ -43,9 +44,9 @@ async def _(event):
         return
     start = datetime.now()
     to_demote_id = None
-    rights = ChatAdminRights(
+    rights = ChatBannedRights(
         change_info=True,
-        post_messages=None,
+        post_messages=True,
         edit_messages=True,
         delete_messages=True,
         ban_users=True,
