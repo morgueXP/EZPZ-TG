@@ -30,6 +30,17 @@ muted_rights = ChatBannedRights(
     send_inline=True,
     embed_links=True
 )
+unmuted_rights = ChatBannedRights(
+    until_date=None,
+    view_messages=None,
+    send_messages=None,
+    send_media=None,
+    send_stickers=None,
+    send_gifs=None,
+    send_games=None,
+    send_inline=None,
+    embed_links=None
+)
 banned_rights = ChatBannedRights(
     until_date=None,
     view_messages=True,
@@ -44,7 +55,7 @@ banned_rights = ChatBannedRights(
 
 
 
-@borg.on(admin_cmd("(ban|unban|mute) ?(.*)"))
+@borg.on(admin_cmd("(ban|unban|mute|unmute) ?(.*)"))
 async def _(event):
     # Space weirdness in regex required because argument is optional and other
     # commands start with ".unban"
@@ -58,6 +69,8 @@ async def _(event):
         rights = banned_rights
     elif input_cmd == "unban":
         rights = unbanned_rights
+    elif input_cmd == "unmute":
+        rights = unmuted_rights
     elif input_cmd == "mute":
         rights = muted_rights
     input_str = event.pattern_match.group(2)
