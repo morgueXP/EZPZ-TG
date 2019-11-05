@@ -1,26 +1,26 @@
-""".ipromote\
+""".promote\
 \nUsage: Reply to someone's message with .promote to promote them.\
-\n\n.idemote\
+\n\n.demote\
 \nUsage: Reply to someone's message with .demote to revoke their admin permissions.\
-\n\n.iban\
+\n\n.ban\
 \nUsage: Reply to someone's message with .ban to ban them.\
-\n\n.iunban\
+\n\n.unban\
 \nUsage: Reply to someone's message with .unban to unban them in this chat.\
-\n\n.imute\
+\n\n.mute\
 \nUsage: Reply to someone's message with .mute to mute them, works on admins too.\
-\n\n.iunmute\
+\n\n.unmute\
 \nUsage: Reply to someone's message with .unmute to remove them from muted list.\
-\n\n.igmute\
+\n\n.gmute\
 \nUsage: Reply to someone's message with .gmute to mute them in all groups you have in common with them.\
-\n\n.iungmute\
+\n\n.ungmute\
 \nUsage: Reply someone's message with .ungmute to remove them from the gmuted list.\
-\n\n.idelusers\
+\n\n.delusers\
 \nUsage: Searches for deleted accounts in a group. Use .delusers clean to remove deleted accounts from the group.\
-\n\n.iadminlist\
+\n\n.adminlist\
 \nUsage: Retrieves all admins in a chat.\
-\n\n.iuserslist or .userslist <name>\
+\n\n.userslist or .userslist <name>\
 \nUsage: Retrieves all users in a chat.
-\n\n.iundlt\
+\n\n.undlt\
 \nUsage: Sends the last deleted message in group."
 
 Userbot module to help you manage a group.
@@ -687,7 +687,7 @@ async def list_users(eventListUsers):
             )
             remove("userslist.txt")
 
-@borg.on(admin_cmd(pattern=iundlt$"))
+@borg.on(admin_cmd(pattern="undlt$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -736,4 +736,3 @@ async def get_user_from_id(user, event):
         await event.edit(str(err))
         return None
     return user_obj
-
