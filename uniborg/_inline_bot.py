@@ -190,15 +190,12 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         else:
             result = builder.article(
                 "© @UniBorg",
-                text="""Try @UniBorg
-You can log-in as Bot or User and do many cool things with your Telegram account.
-
-All instaructions to run @UniBorg in your PC has been explained in https://github.com/SpEcHiDe/UniBorg""",
+                text="""Join @DraXCommunity""",
                 buttons=[
-                    [custom.Button.url("Join the Channel", "https://telegram.dog/UniBorg"), custom.Button.url(
-                        "Join the Group", "tg://some_unsupported_feature")],
+                    [custom.Button.url("Join the Channel", "https://t.me/DraXGiveaways"), custom.Button.url(
+                        "Join the Group", "https://t.me/DraXCommunity")],
                     [custom.Button.url(
-                        "Source Code", "tg://some_unsupported_feature")]
+                        "Source Code", "https://github.com/Dc5000/DraXHub")]
                 ],
                 link_preview=False
             )
