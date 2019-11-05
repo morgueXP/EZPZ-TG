@@ -11,6 +11,8 @@ from uniborg.util import admin_cmd
 def progress(current, total):
     logger.info("Downloaded {} of {}\nCompleted {}".format(current, total, (current / total) * 100))
 
+DOGBIN_URL = "https://del.dog/"
+
 
 @borg.on(admin_cmd("paste ?(.*)"))
 async def _(event):
