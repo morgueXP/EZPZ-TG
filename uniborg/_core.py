@@ -11,8 +11,6 @@ from uniborg import util
 
 DELETE_TIMEOUT = 5
 
-CMD_LIST = {}
-
 @borg.on(util.admin_cmd(pattern="load (?P<shortname>\w+)$"))  # pylint:disable=E0602
 async def load_reload(event):
     await event.delete()
