@@ -1,11 +1,11 @@
 """Get information about an user on GitHub
-Syntax: .github USERNAME"""
+Syntax: .gituser USERNAME"""
 from telethon import events
 import requests
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("github (.*)"))
+@borg.on(admin_cmd("gituser (.*)"))
 async def _(event):
     if event.fwd_from:
         return
