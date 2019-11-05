@@ -1,10 +1,13 @@
-telethon
+telethon>=1.10.6
+pip>=19.2.3
+hastebin.py
+async_generator
+pybase64
+zalgo_text
+pyfiglet
 lxml
 selenium
-aria2p
-ChatterBot
-spcli
-instaloader
-coffeehouse==1.0.4
-anime-downloader
+aria2p 
+chatterbot
+chatterbot_corpus
 -r ./requirements-stdborg.txt
