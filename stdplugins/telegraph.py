@@ -1,7 +1,7 @@
 """@telegraph Utilities
 Available Commands:
-.telegraph media as reply to a media
-.telegraph text as reply to a large text"""
+.tgraph media as reply to a media
+.tgraph text as reply to a large text"""
 from telethon import events
 import os
 from datetime import datetime
@@ -13,7 +13,7 @@ r = telegraph.create_account(short_name=Config.TELEGRAPH_SHORT_NAME)
 auth_url = r["auth_url"]
 
 
-@borg.on(admin_cmd("telegraph (media|text) ?(.*)"))
+@borg.on(admin_cmd("tgraph (media|text) ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
