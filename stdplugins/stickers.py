@@ -1,6 +1,6 @@
 """Make / Download Telegram Sticker Packs without installing Third Party applications
 Available Commands:
-.kangsticker [Optional Emoji]
+.kang [Optional Emoji]
 .packinfo
 .getsticker"""
 from telethon import events
@@ -29,7 +29,7 @@ from telethon.tl.types import (
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("kangsticker ?(.*)"))
+@borg.on(admin_cmd("kang ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -46,7 +46,7 @@ async def _(event):
         return
     me = borg.me
     userid = event.from_id
-    packname = f"{userid}'s @UniBorg Pack"
+    packname = f"{userid}'s @DraXCommunity Pack"
     packshortname = f"Uni_Borg_{userid}"  # format: Uni_Borg_userid
 
     await event.edit("Processing this sticker. Please Wait!")
@@ -58,7 +58,7 @@ async def _(event):
         with BytesIO(file) as mem_file, BytesIO() as sticker:
             resize_image(mem_file, sticker)
             sticker.seek(0)
-            uploaded_sticker = await borg.upload_file(sticker, file_name="@UniBorg_Sticker.png")
+            uploaded_sticker = await borg.upload_file(sticker, file_name="@DraXCommunity_Sticker.png")
             if not await stickerset_exists(bot_conv, packshortname):
                 await silently_send_message(bot_conv, "/cancel")
                 response = await silently_send_message(bot_conv, "/newpack")
