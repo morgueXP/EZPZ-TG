@@ -37,15 +37,15 @@ async def lydia_disable_enable(event):
         reply_msg = await event.get_reply_message()
         user_id = reply_msg.from_id
         chat_id = event.chat_id
-        await event.edit("ho")
+        await event.edit("Processing.....")
         if input_str == "e":
             session = api_client.create_session()
             logger.info(session)
             logger.info(add_s(user_id, chat_id, session.id, session.expires))
-            await event.edit(f"hi")
+            await event.edit(f"Lydia AI turned on for [user](tg://user?id={user_id}) in chat: `{chat_id}`")
         elif input_str == "d":
             logger.info(remove_s(user_id, chat_id))
-            await event.edit(f"[__**signal lost**__](tg://user?id={user_id})")
+            await event.edit(f"Lydia AI turned off for [user](tg://user?id={user_id}) in chat: `{chat_id}`")
         elif input_str == "l":
             lsts = get_all_s()
             if len(lsts) > 0:
@@ -56,7 +56,7 @@ async def lydia_disable_enable(event):
                 output_str = "no Lydia AI enabled users / chats. Start by replying `.eai` to any user in any chat!"
             if len(output_str) > Config.MAX_MESSAGE_SIZE_LIMIT:
                 with io.BytesIO(str.encode(output_str)) as out_file:
-                    out_file.name = "@Mayur_Karaniya_lydia_ai.text"
+                    out_file.name = "@DraX_Lydia.text"
                     await borg.send_file(
                         event.chat_id,
                         out_file,
