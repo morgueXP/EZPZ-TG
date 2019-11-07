@@ -444,7 +444,32 @@ async def gmute(eventGmute):
                     f"CHAT: {eventGmute.chat.title}(`{eventGmute.chat_id}`)"
                 )
 
-
+@borg.on(admin_cmd("listgmuted"))
+async def approve_p_m(event):
+    if event.fwd_from:
+        return
+    gmuted_ppl = get_all_gmuted()
+    Gmuted_Users = "Current Gmuted Users:\n"
+    for a_user in gmuted_ppl:
+        if a_user.reason:
+            Gmuted_users += f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id}) for {a_user.reason}\n"
+        else:
+            Gmuted_users += f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id})\n"
+    if len(Gmuted_users) > Config.MAX_MESSAGE_SIZE_LIMIT:
+        with io.BytesIO(str.encode(Gmuted_users)) as out_file:
+            out_file.name = "gmuted.users.text"
+            await borg.send_file(
+                event.chat_id,
+                out_file,
+                force_document=True,
+                allow_cache=False,
+                caption="Current Gmuted Users",
+                reply_to=event
+            )
+            await event.delete()
+    else:
+        await event.edit(Gmuted_users)
+                
 @borg.on(events.NewMessage(outgoing=True, pattern="^.ungmute(?: |$)(.*)"))
 async def ungmute(eventUnGmute):
     if not eventUnGmute.text[0].isalpha() and eventUnGmute.text[0] \
