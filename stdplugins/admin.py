@@ -445,7 +445,7 @@ async def gmute(eventGmute):
                 )
 
 @borg.on(admin_cmd("listgmuted"))
-async def approve_p_m(event):
+async def listgmuted(event):
     if event.fwd_from:
         return
     gmuted_ppl = get_all_gmuted()
