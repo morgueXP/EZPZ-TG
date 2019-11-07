@@ -1,6 +1,7 @@
 """Personal Message Spammer
 Available Commands:
 .pm
+.dis
 .block
 .listpms"""
 import asyncio
@@ -86,6 +87,20 @@ async def approve_p_m(event):
                 await event.edit("Blocked PM")
                 await asyncio.sleep(3)
                 await borg(functions.contacts.BlockRequest(chat.id))
+                
+                
+@borg.on(admin_cmd("dis ?(.*)"))
+async def approve_p_m(event):
+    if event.fwd_from:
+        return
+    reason = event.pattern_match.group(1)
+    chat = await event.get_chat()
+    if Config.NO_P_M_SPAM:
+        if event.is_private:
+            if is_approved(chat.id):
+                disapprove(chat.id)
+                await event.edit("Dissapproved PM")
+
 
 
 @borg.on(admin_cmd("listpms"))
