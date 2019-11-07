@@ -382,7 +382,7 @@ async def unmute(eventUnMute):
 async def muter(mutedMessage):
     try:
         from sql_helpers.spam_mute_sql import is_muted
-        from sql_helpers.gmute_sql import is_gmuted, get_all_gmuted
+        from sql_helpers.gmute_sql import is_gmuted
     except AttributeError:
         return
     muted = is_muted(mutedMessage.chat_id)
@@ -449,7 +449,7 @@ async def gmute(eventGmute):
 async def listgmuted(event):
     if event.fwd_from:
         return
-    gmuted_ppl = get_all_gmuted()
+    gmuted_ppl = gmuted
     Gmuted_users = "Current Gmuted Users:\n"
     for a_user in gmuted_ppl:
             Gmuted_users += f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id})\n"
