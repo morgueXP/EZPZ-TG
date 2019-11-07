@@ -14,6 +14,7 @@ DEL_TIME_OUT = 70
 
 @borg.on(admin_cmd(pattern="autobio"))  # pylint:disable=E0602
 async def _(event):
+    await event.reply("Turned on Auto-Bio")
     if event.fwd_from:
         return
     while True:
@@ -35,10 +36,13 @@ async def _(event):
             #     "Successfully Changed Profile Bio"
             # )
         await asyncio.sleep(DEL_TIME_OUT)
-
+        
+'''async def handler(event):
+    await event.reply("Turned on Auto-Bio")'''
 
 @borg.on(admin_cmd(pattern="autoname"))  # pylint:disable=E0602
 async def _(event):
+    await event.reply("Turned on Auto-Name")
     if event.fwd_from:
         return
     while True:
@@ -60,3 +64,6 @@ async def _(event):
             #     "Successfully Changed Profile Name"
             # )
         await asyncio.sleep(DEL_TIME_OUT)
+
+'''async def handler(event):
+    await event.reply("Turned on Auto-Bio")'''
