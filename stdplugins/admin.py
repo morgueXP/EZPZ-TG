@@ -1,4 +1,5 @@
-""".promote\
+"""
+.promote\
 \nUsage: Reply to someone's message with .promote to promote them.\
 \n\n.demote\
 \nUsage: Reply to someone's message with .demote to revoke their admin permissions.\
@@ -433,7 +434,7 @@ async def gmute(eventGmute):
         if gmute(user.id) is False:
             await eventGmute.edit('`Error! User probably already gmuted.\nRe-rolls the tape.`')
         else:
-            await eventGmute.edit("`Haha Yash! Globally taped!`")
+            await eventGmute.edit("`Haha! Globally taped!`")
 
             if ENABLE_LOG:
                 await eventGmute.client.send_message(
