@@ -449,7 +449,7 @@ async def gmute(eventGmute):
 async def listgmuted(event):
     if event.fwd_from:
         return
-    gmuted_ppl = is_gmuted(mutedMessage.sender_id)
+    gmuted_ppl = is_gmuted
     Gmuted_users = "Current Gmuted Users:\n"
     for a_user in gmuted_ppl:
             Gmuted_users += f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id})\n"
