@@ -106,6 +106,12 @@ class Config(object):
     #Google Chrome Stuff
     CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
     GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
+    #Spotify Stuff
+    DEFAULT_BIO = os.environ.get("DEFAULT_BIO",None)
+    SPOTIFY_BIO_PREFIX = os.environ.get("SPOTIFY_BIO_PREFIX",None)
+    SPOTIFY_PASS = os.environ.get("SPOTIFY_PASS",None)
+    SPOTIFY_USERNAME = os.environ.get("SPOTIFY_USERNAME",None)
+
     # Google Drive ()
     G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID", None)
     G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET", None)
