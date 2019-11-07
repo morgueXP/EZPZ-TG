@@ -44,8 +44,6 @@ from telethon.tl.types import (ChannelParticipantsAdmins, ChatAdminRights,
                                ChatBannedRights, MessageEntityMentionName,
                                MessageMediaPhoto)
 
-from sql_helpers.gmute_sql import is_gmuted, gmute, ungmute, get_all_gmuted
-
 ENABLE_LOG = True
 LOGGING_CHATID = Config.PRIVATE_CHANNEL_BOT_API_ID
 BANNED_RIGHTS = ChatBannedRights(
@@ -384,7 +382,7 @@ async def unmute(eventUnMute):
 async def muter(mutedMessage):
     try:
         from sql_helpers.spam_mute_sql import is_muted
-        from sql_helpers.gmute_sql import is_gmuted
+        from sql_helpers.gmute_sql import is_gmuted, get_all_gmuted
     except AttributeError:
         return
     muted = is_muted(mutedMessage.chat_id)
@@ -452,7 +450,7 @@ async def listgmuted(event):
     if event.fwd_from:
         return
     gmuted_ppl = get_all_gmuted()
-    Gmuted_Users = "Current Gmuted Users:\n"
+    Gmuted_users = "Current Gmuted Users:\n"
     for a_user in gmuted_ppl:
             Gmuted_users += f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id})\n"
     if len(Gmuted_users) > Config.MAX_MESSAGE_SIZE_LIMIT:
