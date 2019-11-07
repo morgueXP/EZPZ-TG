@@ -410,7 +410,7 @@ async def muter(mutedMessage):
         if i.sender == str(mutedMessage.sender_id):
             await mutedMessage.delete()
 
-
+from sql_helpers.gmute_sql import is_gmuted
 @borg.on(events.NewMessage(outgoing=True, pattern="^.gmute(?: |$)(.*)"))
 async def gmute(eventGmute):
     if not eventGmute.text[0].isalpha() and eventGmute.text[0] not in ("/", "#", "@", "!"):
@@ -449,7 +449,7 @@ async def gmute(eventGmute):
 async def listgmuted(event):
     if event.fwd_from:
         return
-    gmuted_ppl = gmuted
+    gmuted_ppl = is_gmuted(mutedMessage.sender_id)
     Gmuted_users = "Current Gmuted Users:\n"
     for a_user in gmuted_ppl:
             Gmuted_users += f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id})\n"
