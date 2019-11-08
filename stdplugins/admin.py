@@ -451,8 +451,8 @@ async def listgmuted(event):
         return
     gmuted_ppl = is_gmuted
     Gmuted_users = "Current Gmuted Users:\n"
-    for a_user in gmuted_ppl:
-            Gmuted_users += f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id})\n"
+    for b in gmuted_ppl:
+            Gmuted_users += f"👉 [{b.chat_id}](tg://user?id={b.chat_id})\n"
     if len(Gmuted_users) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(Gmuted_users)) as out_file:
             out_file.name = "gmuted.users.text"
