@@ -1,4 +1,4 @@
-telethon>=1.10.6
+telethon>=1.10.8
 pip>=19.2.3
 hastebin.py
 async_generator
