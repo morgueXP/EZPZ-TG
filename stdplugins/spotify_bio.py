@@ -78,7 +78,7 @@ async def update_spotify_info():
                 await update_token()
             elif errorcheck == 1:
                 SPOTIFYCHECK = False
-                await borg(UpdateProfileRequest(about=Config.DEFAULT_NAME))
+                await borg(UpdateProfileRequest(about=Config.DEFAULT_BIO))
                 print(ERROR_MSG)
                 if Config.LOGGER:
                     await borg.send_message(
@@ -87,7 +87,7 @@ async def update_spotify_info():
         except JSONDecodeError:
             OLDEXCEPT = True
             await sleep(6)
-            await borg(UpdateProfileRequest(about=Config.DEFAULT_NAME))
+            await borg(UpdateProfileRequest(about=Config.DEFAULT_BIO))
         except TypeError:
             await dirtyfix()
         SPOTIFYCHECK = False
@@ -127,5 +127,5 @@ async def set_biodgraph(setdbio):
     global RUNNING
     SPOTIFYCHECK = False
     RUNNING = False
-    await borg(UpdateProfileRequest(about=Config.DEFAULT_NAME))
+    await borg(UpdateProfileRequest(about=Config.DEFAULT_BIO))
     await setdbio.edit(SPO_BIO_DISABLED)
