@@ -2,11 +2,10 @@
 # (c) Shrimadhav U K
 
 from telethon import events, functions, types
-import asyncio
+from uniborg.util import admin_cmd
 
-
-@borg.on(events.NewMessage(pattern=r"\-listmyusernames", outgoing=True))
-async def _(event):
+@borg.on(admin_cmd("listmyusernames"))
+async def handler(event):
     if event.fwd_from:
         return
     result = await borg(functions.channels.GetAdminedPublicChannelsRequest())
