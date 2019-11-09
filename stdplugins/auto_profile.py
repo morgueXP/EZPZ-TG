@@ -46,10 +46,9 @@ async def _(event):
     while True:
         bio = f"@SkuzzyWorld Don't mess with me"
         logger.info(bio)
-        try:
-            await borg(functions.account.UpdateProfileRequest(  # pylint:disable=E0602
-                about=bio
-            ))
+        await borg(functions.account.UpdateProfileRequest(  # pylint:disable=E0602
+            about=bio
+        ))
             
             
 @borg.on(admin_cmd(pattern="enautoname"))  # pylint:disable=E0602
@@ -78,15 +77,14 @@ async def _(event):
         await asyncio.sleep(DEL_TIME_OUT)
 
 
-@borg.on(admin_cmd(pattern="edisautoname"))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="disautoname"))  # pylint:disable=E0602
 async def _(event):
-    await event.reply("Turned on Auto-Name")
+    await event.reply("Turned off Auto-Name")
     if event.fwd_from:
         return
     while True:
         name = f"IN Skuzzy IN"
         logger.info(name)
-        try:
-            await borg(functions.account.UpdateProfileRequest(  # pylint:disable=E0602
-                first_name=name
-            ))
+        await borg(functions.account.UpdateProfileRequest(  # pylint:disable=E0602
+            first_name=name
+        ))
