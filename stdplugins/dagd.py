@@ -1,8 +1,7 @@
 """DA.GD helpers in @UniBorg
 Available Commands:
-.isup URL
 .dns google.com
-.url <long url>
+.short <long url>
 .unshort <short url>"""
 from telethon import events
 import os
@@ -44,6 +43,8 @@ async def _(event):
     input_str = event.pattern_match.group(1)
     if not input_str.startswith("http"):
         input_str = "http://" + input_str
+    if not input_str.startswith("https"):
+        input_str = "https://" + input_str
     r = requests.get(input_str, allow_redirects=False)
     if str(r.status_code).startswith('3'):
         await event.edit("Input URL: {}\nReDirected URL: {}".format(input_str, r.headers["Location"]))
