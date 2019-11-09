@@ -84,8 +84,6 @@ async def _(event):
     if event.fwd_from:
         return
     while True:
-        DM = time.strftime("%d.%m.%y")
-        HM = time.strftime("%H:%M")
         name = f"IN Skuzzy IN"
         logger.info(name)
         try:
