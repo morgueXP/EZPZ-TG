@@ -3,6 +3,7 @@ Available Commands:
 .dns google.com
 .short <long url>
 .unshort <short url>"""
+
 from telethon import events
 import os
 import requests
@@ -20,7 +21,7 @@ async def _(event):
     if response_api:
         await event.edit("DNS records of {} are \n{}".format(input_str, response_api))
     else:
-        await event.edit("i can't seem to find {} on the internet".format(input_str))
+        await event.edit("I can't seem to find {} on the internet".format(input_str))
 
 
 @borg.on(admin_cmd("short (.*)"))
@@ -43,7 +44,7 @@ async def _(event):
     input_str = event.pattern_match.group(1)
     if not input_str.startswith("http"):
         input_str = "http://" + input_str
-    if not input_str.startswith("https"):
+    elif not input_str.startswith("https"):
         input_str = "https://" + input_str
     r = requests.get(input_str, allow_redirects=False)
     if str(r.status_code).startswith('3'):
