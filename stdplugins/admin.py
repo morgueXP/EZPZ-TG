@@ -24,8 +24,7 @@
 \n\n.setgrouppic\
 \nUsage: Changes the group pic, use as reply to any image!.
 
-Userbot module to help you manage a group.
-  © [cHAuHaN](http://t.me/amnd33p)"""
+Userbot module to help you manage a group."""
 
 from asyncio import sleep
 from os import remove
@@ -401,16 +400,17 @@ async def muter(mutedMessage):
         for i in muted:
             if str(i.sender) == str(mutedMessage.sender_id):
                 await mutedMessage.delete()
-                await mutedMessage.client(EditBannedRequest(
+                '''await mutedMessage.client(EditBannedRequest(
                     mutedMessage.chat_id,
                     mutedMessage.sender_id,
-                    rights
+                    rights'''
                 ))
     for i in gmuted:
         if i.sender == str(mutedMessage.sender_id):
             await mutedMessage.delete()
 
 from sql_helpers.gmute_sql import is_gmuted
+
 @borg.on(events.NewMessage(outgoing=True, pattern="^.gmute(?: |$)(.*)"))
 async def gmute(eventGmute):
     if not eventGmute.text[0].isalpha() and eventGmute.text[0] not in ("/", "#", "@", "!"):
@@ -447,12 +447,13 @@ async def gmute(eventGmute):
 
 @borg.on(admin_cmd("listgmuted"))
 async def listgmuted(event):
-    if event.fwd_from:
+  from sql_helpers.gmute_sql import is_gmuted
+  if event.fwd_from:
         return
     gmuted_ppl = is_gmuted
     Gmuted_users = "Current Gmuted Users:\n"
     for b in gmuted_ppl:
-            Gmuted_users += f"👉 [{b.chat_id}](tg://user?id={b.chat_id})\n"
+            Gmuted_users += f"[{b.chat_id}](tg://user?id={b.chat_id})\n"
     if len(Gmuted_users) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(Gmuted_users)) as out_file:
             out_file.name = "gmuted.users.text"
