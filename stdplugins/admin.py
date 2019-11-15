@@ -403,8 +403,8 @@ async def muter(mutedMessage):
                 '''await mutedMessage.client(EditBannedRequest(
                     mutedMessage.chat_id,
                     mutedMessage.sender_id,
-                    rights'''
-                ))
+                    rights)'''
+                          )
     for i in gmuted:
         if i.sender == str(mutedMessage.sender_id):
             await mutedMessage.delete()
