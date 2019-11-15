@@ -1,7 +1,7 @@
 """It will change ur name...
 accroding to ur spotify songs u listening
-\n.ensp (to set ur name)
-\n.disp (to disable and back to default name)
+\n.enspbio (to set ur bio)
+\n.dispbio (to disable and back to default bio)
 \nPorted by @NeoMatrix90 , @kirito6969 (both are same person)"""
 from asyncio import sleep
 from json import loads
@@ -19,9 +19,9 @@ import spotify_token as st
 from sample_config import Config
 
 # =================== CONSTANT ===================
-SPO_BIO_ENABLED = "```Spotify Current Music to Name enabled.```"
-SPO_BIO_DISABLED = "```Spotify Current Music to Name disabled. Name is default now.```"
-SPO_BIO_RUNNING = "```Spotify Current Music to Name already running.```"
+SPO_BIO_ENABLED = "```Spotify Current Music to Bio enabled.```"
+SPO_BIO_DISABLED = "```Spotify Current Music to Bio disabled. Name is default now.```"
+SPO_BIO_RUNNING = "```Spotify Current Music to Bio already running.```"
 SPO_BIO_CONFIG_ERROR = "```Error.```"
 ERROR_MSG = "```Module halted, Unexpected error.```"
 
