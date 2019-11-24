@@ -46,7 +46,7 @@ async def _(event):
         return
     me = borg.me
     userid = event.from_id
-    packname = f"{userid}'s @DraXCommunity Pack"
+    packname = f"{userid}'s 2nd @DraXCommunity Pack"
     packshortname = f"DraXCommunity_{userid}"  # format: Uni_Borg_userid
 
     await event.edit("Inviting this sticker pack over my pack ^_^")
