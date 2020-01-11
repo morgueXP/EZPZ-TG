@@ -1,15 +1,16 @@
-"""Purge your messages without the admins seeing it in Recent Actions"""
+"""Purge your messages without the admins seeing it in Recent Actions
+\nUsage: .del to message where you want to delete it from"""
 from telethon import events
 import asyncio
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("purge ?(.*)"))
+@borg.on(admin_cmd("del ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
     if event.reply_to_msg_id:
-        i = 0
+        i = -1
         msgs = []
         from_user = None
         input_str = event.pattern_match.group(1)
