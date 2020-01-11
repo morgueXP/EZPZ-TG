@@ -23,7 +23,8 @@
 \nUsage: Retrieves all users in a chat.
 \n\n.setgrouppic\
 \nUsage: Changes the group pic, use as reply to any image!.
-
+\n\n.leave
+\nUsage: Leaves the group.
 Userbot module to help you manage a group."""
 
 from asyncio import sleep
@@ -37,11 +38,13 @@ from telethon.errors.rpcerrorlist import (UserIdInvalidError,
                                           MessageTooLongError)
 from telethon.tl.functions.channels import (EditAdminRequest,
                                             EditBannedRequest,
-                                            EditPhotoRequest)
+                                            EditPhotoRequest,
+                                            LeaveChannelRequest)
 from telethon.tl.functions.messages import UpdatePinnedMessageRequest
 from telethon.tl.types import (ChannelParticipantsAdmins, ChatAdminRights,
                                ChatBannedRights, MessageEntityMentionName,
                                MessageMediaPhoto)
+import time
 
 ENABLE_LOG = True
 LOGGING_CHATID = Config.PRIVATE_CHANNEL_BOT_API_ID
