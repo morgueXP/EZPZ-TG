@@ -78,7 +78,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         elif query.startswith("tb_btn"):
             result = builder.article(
                 "Button Parser © @UniBorg",
-                text=f"powered by @UniBorg",
+                text=f"Powered by @DraXCommunity",
                 buttons=[],
                 link_preview=True
             )
@@ -87,9 +87,9 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 "© @UniBorg",
                 text="""Try @UniBorg
 You can log-in as Bot or User and do many cool things with your Telegram account.
-All instaructions to run @UniBorg in your PC has been explained in https://github.com/SpEcHiDe/UniBorg""",
+All instructions to run @UniBorg in your PC has been explained in https://github.com/Dc5000/MehUniborg""",
                 buttons=[
-                    [custom.Button.url("Join the Channel", "https://telegram.dog/UniBorg"), custom.Button.url(
+                    [custom.Button.url("Join the Channel", "https://t.me/DraXGiveaways"), custom.Button.url(
                         "Join the Group", "tg://some_unsupported_feature")],
                     [custom.Button.url(
                         "Source Code", "tg://some_unsupported_feature")]
