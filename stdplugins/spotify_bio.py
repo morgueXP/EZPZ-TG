@@ -20,7 +20,7 @@ from sample_config import Config
 
 # =================== CONSTANT ===================
 SPO_BIO_ENABLED = "```Spotify Current Music to Bio enabled.```"
-SPO_BIO_DISABLED = "```Spotify Current Music to Bio disabled. Name is default now.```"
+SPO_BIO_DISABLED = "```Spotify Current Music to Bio disabled. Bio is default now.```"
 SPO_BIO_RUNNING = "```Spotify Current Music to Bio already running.```"
 SPO_BIO_CONFIG_ERROR = "```Error.```"
 ERROR_MSG = "```Module halted, Unexpected error.```"
