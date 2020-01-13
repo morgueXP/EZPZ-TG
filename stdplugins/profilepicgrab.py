@@ -48,7 +48,7 @@ async def _(event):
         location = str(e)
     caption = """Profile Pic Grabber By @DraXCommunity
 
-Owner: <a href='tg://user?name={}'>{}</a>
+Owner: <a href='tg://user?id={}'>{}</a>
 """.format(
         user_id,
         user_id,
