@@ -1,14 +1,14 @@
 """Globally Ban users from all the
 feds where you are fedadmin in missrose_bot
 Available Commands:
-.fban REASON
-.unfban REASON"""
+.fban @username REASON
+.unfban @username """
 from telethon import events
 import asyncio
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("gban ?(.*)"))
+@borg.on(admin_cmd("fban ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -20,10 +20,10 @@ async def _(event):
         else:
             r_from_id = r.from_id
         await borg.send_message(
-            Config.F_BAN_LOGGER_GROUPS,
-            "/gban {}".format(reason)
+            Config.F_BAN_LOGGER_GROUP,
+            "/fban {}".format(reason)
         )
-    await event.delete()
+    await event.edit("Fbanned User Successfully")
 
 
 @borg.on(admin_cmd("unfban ?(.*)"))
@@ -35,7 +35,7 @@ async def _(event):
         r = await event.get_reply_message()
         r_from_id = r.from_id
         await borg.send_message(
-            Config.F_BAN_LOGGER_GROUPS,
+            Config.F_BAN_LOGGER_GROUP,
             "/unfban {}".format(reason)
         )
-    await event.delete()
+    await event.edit("Unfbanned User Successfully")
