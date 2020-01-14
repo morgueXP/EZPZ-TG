@@ -1,5 +1,7 @@
 # uniborg
 
+Join our [Official Telegram Channel](https://t.me/MehUniBorg)
+
 Pluggable [``asyncio``](https://docs.python.org/3/library/asyncio.html)
 [Telegram](https://telegram.org) userbot based on
 [Telethon](https://github.com/LonamiWebs/Telethon).
