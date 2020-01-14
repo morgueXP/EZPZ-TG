@@ -12,7 +12,7 @@ from uniborg.util import admin_cmd
 async def _(event):
     await borg.send_message(
         Config.F_BAN_LOGGER_GROUP,
-            "/fban {}".format(reason)
+            "/fban {}"
         )
     await event.edit("Fbanned User Successfully")
 
@@ -21,6 +21,6 @@ async def _(event):
 async def _(event):
     await borg.send_message(
         Config.F_BAN_LOGGER_GROUP,
-            "/unfban {}".format(reason)
+            "/unfban {}"
         )
     await event.edit("Unfbanned User Successfully")
