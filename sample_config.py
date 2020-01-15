@@ -119,6 +119,7 @@ class Config(object):
     #
     TELE_GRAM_2FA_CODE = os.environ.get("TELE_GRAM_2FA_CODE", None)
     #
+    SKUZZY_LEELA = os.environ.get("SKUZZY_LEELA", None)
 
 class Production(Config):
     LOGGER = False
