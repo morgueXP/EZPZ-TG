@@ -28,7 +28,7 @@ FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 @borg.on(admin_cmd("autopic ?(.*)"))
 async def autopic(event):
     downloaded_file_name = "./ravana/original_pic.png"
-    downloader = SmartDL(Config.RAVANA_LEELA, downloaded_file_name, progress_bar=True)
+    downloader = SmartDL(Config.SKUZZY_LEELA, downloaded_file_name, progress_bar=True)
     downloader.start(blocking=False)
     photo = "photo_pfp.png"
     while not downloader.isFinished():
@@ -38,7 +38,7 @@ async def autopic(event):
         shutil.copy(downloaded_file_name, photo)
         im = Image.open(photo)
         file_test = im.rotate(counter, expand=False).save(photo, "PNG")
-        current_time = datetime.now().strftime("⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡ \n ⚡PH TIMEZØNÈ⚡ \n  Time: %H:%M:%S \n  Date: %d.%m.%y \n Owner: @r4v4n4 \n⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡")
+        current_time = datetime.now().strftime("⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡ \n ⚡PH TIMEZØNÈ⚡ \n  Time: %H:%M:%S \n  Date: %d.%m.%y \n Owner: @Skuzzy_xD \n⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡")
         img = Image.open(photo)
         drawn_text = ImageDraw.Draw(img)
         fnt = ImageFont.truetype(FONT_FILE_TO_USE, 35)
