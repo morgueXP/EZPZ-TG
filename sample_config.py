@@ -104,7 +104,7 @@ class Config(object):
     #Lydia API
     LYDIA_API = os.environ.get("LYDIA_API",None)
     #Google Chrome Stuff
-    CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
+    CHROME_DRIVER = os.environ.get("CHROME_DRIVER", "/app/.chromedriver/bin/chromedriver")
     GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
     #Spotify Stuff
     DEFAULT_BIO = os.environ.get("DEFAULT_BIO",None)
