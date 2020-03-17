@@ -46,8 +46,8 @@ async def _(event):
         return
     me = borg.me
     userid = event.from_id
-    packname = f"{userid}'s 2nd @DraXCommunity Pack"
-    packshortname = f"DraXCommunity_{userid}_2nd"  # format: Uni_Borg_userid
+    packname = f"@M0RGU3's kang pack 1"
+    packshortname = f"M0RGU3's kang pack 1"  # format: Uni_Borg_userid
 
     await event.edit("Inviting this sticker pack over my pack ^_^")
 
@@ -75,7 +75,7 @@ async def _(event):
                         mime_type='image/png',
                         attributes=[
                             DocumentAttributeFilename(
-                                "@DraXCommunity_Sticker.png"
+                                "@M0RGU3_Sticker.png"
                             )
                         ]
                     ),
@@ -99,7 +99,7 @@ async def _(event):
                         mime_type='image/png',
                         attributes=[
                             DocumentAttributeFilename(
-                                "@DraXCommunity_Sticker.png"
+                                "@M0RGU3_Sticker.png"
                             )
                         ]
                     ),
