@@ -10,7 +10,7 @@ Pluggable [``asyncio``](https://docs.python.org/3/library/asyncio.html)
 
 #### The Easy Way
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FmorgueXP%2FEZPZ-TG&template=https%3A%2F%2Fgithub.com%2FDc5000%2FMehUniBorg)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FmorgueXP%2FEZPZ-TG&template=https%3A%2F%2Fgithub.com%2FmorgueXP%2FEZPZ-TG)
 
 #### The Legacy Way
 Simply clone the repository and run the main file:
@@ -28,7 +28,7 @@ An example `config.py` file could be:
 
 **Not All of the variables are mandatory**
 
-__The UniBorg should work by setting only the first two variables__
+__The ezpztg should work by setting only the first two variables__
 
 ```python3
 from sample_config import Config
