@@ -1,6 +1,6 @@
-# uniborg
+# EZPZ-TG
 
-Join our [Official Telegram Channel](https://t.me/DraXNetwork)
+Join me on Telegram [http://t.me/m0rgu3 ]
 
 Pluggable [``asyncio``](https://docs.python.org/3/library/asyncio.html)
 [Telegram](https://telegram.org) userbot based on
