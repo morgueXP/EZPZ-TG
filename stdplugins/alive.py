@@ -9,7 +9,7 @@ from uniborg.util import admin_cmd
 async def _(event):
     if event.fwd_from:
         return
-    mentions = "` This bot is more alive than you. ^.^ \n Me nub :/ \n\nTelethon version: 6.9.0\n Python: 3.7.3\nfork by:` @M0RGU3 \n`Give a man a program, frustrate him for a day,Teach a man to program,frustrate him for a lifetime. Go Die.!`"
+    mentions = "` This bot is more alive than you. ^.^ \n Me nub :/ \n\nTelethon version: 6.9.0\n Python: 3.7.3\nfork by:` @M0RGU3 \n`Give a man a program, frustrate him for a day,\n Teach a man to program,frustrate him for a lifetime. Go Die.!`"
     chat = await event.get_input_chat()
     async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
         mentions += f""
